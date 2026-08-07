@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parth Ranjan Pandey — Full-Stack &amp; AI Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg: '#FAFAF8',
+          bgRaised: '#F1F1EC',
+          ink: '#15181D',
+          inkSoft: '#565E6B',
+          line: '#E1E1DA',
+          accent: '#2B4CE0',
+          accentSoft: '#EDF0FD',
+          term: '#14161A',
+          termBar: '#1D2026',
+          termBorder: '#2A2E36',
+          termText: '#C9CDD3',
+          termOut: '#8FE3A3',
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+  }
+  body{-webkit-font-smoothing:antialiased;}
+  ::selection{background:#2B4CE0; color:#fff;}
+  .keyword{color:#2B4CE0; font-weight:600;}
+  .nav-link{transition:color 0.2s ease;}
+  .nav-link:hover{color:#2B4CE0;}
+  .footer-item{color:#2B4CE0; font-weight:600; transition:color 0.2s ease, text-decoration-color 0.2s ease;}
+  .footer-item:hover{color:#1D3ACD; text-decoration:underline; text-decoration-color:#2B4CE0;}
+  .cursor{animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+</style>
+</head>
+<body class="bg-bg text-ink font-body leading-relaxed">
+
+<header class="sticky top-0 z-50 bg-bg/85 backdrop-blur-md border-b border-line">
+  <div class="max-w-4xl mx-auto flex items-center justify-between px-6 py-4">
+    <div class="font-mono text-sm font-medium tracking-wide">
+      code<span class="text-accent">X</span>4r
+    </div>
+    <nav class="hidden sm:flex gap-7 text-sm text-inkSoft">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#credentials">Credentials</a>
+      <!-- <a class="nav-link" href="#contact">Contact</a> -->
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6">
+
+  <!-- HERO -->
+  <section class="py-12 sm:py-16">
+    <div class="flex items-start justify-between gap-6">
+      <div class="font-mono text-xs uppercase tracking-widest text-accent flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span>
+        Open to relocation
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-col-reverse gap-6 md:flex-row md:items-end md:justify-between">
+      <h1 class="font-display font-semibold text-[34px] sm:text-[46px] lg:text-[58px] leading-[1.05] tracking-tight max-w-[12ch]">
+        Parth Ranjan Pandey
+      </h1>
+      <img class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full object-cover border-2 border-line" src="parth-photo.png" alt="Portrait of Parth Ranjan Pandey">
+    </div>
+    <p class="mt-5 text-base sm:text-lg text-inkSoft max-w-[52ch]">
+      Full-stack developer working in the MERN stack, with a growing focus on backend engineering and AI-powered applications.
+    </p>
+
+    <div class="mt-10 rounded-xl overflow-hidden shadow-[0_20px_40px_-20px_rgba(20,22,26,0.35)] max-w-2xl" role="img" aria-label="Terminal window showing a summary of Parth's role and focus">
+      <div class="bg-termBar border-b border-termBorder flex items-center gap-1.5 px-3.5 py-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
+        <span class="ml-2 font-mono text-[11px] text-inkSoft">parth — zsh</span>
+      </div>
+      <div class="bg-term px-5 sm:px-6 py-5 sm:py-6 font-mono text-[13px] sm:text-[13.5px] leading-loose text-termText overflow-x-auto">
+        <div><span class="text-[#4E7CFF]">$</span> whoami</div>
+        <div class="text-termOut">&gt; CS undergraduate · B.Tech, PSIT Kanpur (2024–27)</div>
+        <div class="mt-2.5"><span class="text-[#4E7CFF]">$</span> stack --list</div>
+        <div class="text-termOut">&gt; React · Node · Express · MongoDB · Python</div>
+        <div class="mt-2.5"><span class="text-[#4E7CFF]">$</span> focus --current</div>
+        <div class="text-termOut">&gt; AI resume analysis, secure auth, backend systems<span class="cursor inline-block w-[7px] h-3.5 bg-termText ml-0.5 align-text-bottom"></span></div>
+      </div>
+    </div>
+
+    <div class="mt-7 flex flex-wrap gap-3.5">
+      <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg bg-ink text-white border border-ink hover:bg-accent hover:border-accent transition-colors" href="mailto:pandeyparth406@gmail.com">Email me</a>
+      <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg border border-line hover:border-ink transition-colors" href="https://github.com/codeX4r" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg border border-line hover:border-ink transition-colors" href="https://www.linkedin.com/in/parthranjanpandey/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-12 sm:py-16">
+    <div class="flex items-baseline gap-3.5 mb-9 border-b border-line pb-4">
+      <span class="font-mono text-xs text-inkSoft">01</span>
+      <span class="font-display font-semibold text-2xl">About</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 sm:gap-12">
+      <div class="text-inkSoft text-[15.5px] space-y-3.5">
+        <p class="max-w-[56ch]">I'm a Computer Science undergraduate proficient in the <strong class="keyword">MERN stack</strong> and <strong class="keyword">Python</strong>, with hands-on experience across full-stack development, <span class="keyword">machine learning</span>, and <span class="keyword">AI integration</span> using the <span class="keyword">Gemini</span> and <span class="keyword">OpenAI APIs</span>.</p>
+        <p class="max-w-[56ch]">Most of my recent work centers on <span class="keyword">secure authentication systems</span>, <span class="keyword">REST APIs</span>, and applications that put AI to practical use — like <span class="keyword">resume analysis</span> and natural-language movie search. I care more about solving real problems than collecting shiny badges.</p>
+        <p class="max-w-[56ch]">Current focus: an <span class="keyword">AI resume analyzer</span>, backend engineering, system design, and DSA in Java.</p>
+      </div>
+      <div>
+        <div class="py-0 border-t-0">
+          <div class="flex justify-between gap-2.5 text-sm">
+            <span class="font-semibold">B.Tech, Computer Science</span>
+            <span class="font-mono text-inkSoft text-xs whitespace-nowrap">2024–27</span>
+          </div>
+          <div class="text-inkSoft text-[13.5px] mt-1">Pranveer Singh Institute of Technology, Kanpur</div>
+          <div class="text-accent font-mono text-xs mt-1">67.5%</div>
+        </div>
+        <div class="py-3.5 border-t border-line mt-3.5">
+          <div class="flex justify-between gap-2.5 text-sm">
+            <span class="font-semibold">Diploma, Computer Science</span>
+            <span class="font-mono text-inkSoft text-xs whitespace-nowrap">2021–24</span>
+          </div>
+          <div class="text-inkSoft text-[13.5px] mt-1">Government Polytechnic, Unnao</div>
+          <div class="text-accent font-mono text-xs mt-1">75%</div>
+        </div>
+        <div class="py-3.5 border-t border-line">
+          <div class="flex justify-between gap-2.5 text-sm">
+            <span class="font-semibold">Class X, CBSE</span>
+            <span class="font-mono text-inkSoft text-xs whitespace-nowrap">2021</span>
+          </div>
+          <div class="text-inkSoft text-[13.5px] mt-1">Lucknow Public School, Unnao</div>
+          <div class="text-accent font-mono text-xs mt-1">90%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-12 sm:py-16">
+    <div class="flex items-baseline gap-3.5 mb-9 border-b border-line pb-4">
+      <span class="font-mono text-xs text-inkSoft">02</span>
+      <span class="font-display font-semibold text-2xl">Skills</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
+      <div>
+        <div class="font-mono text-[11.5px] uppercase tracking-wider text-inkSoft mb-2.5">Languages</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">JavaScript</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Java</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Python</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">PHP</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">SQL</span>
+        </div>
+      </div>
+      <div>
+        <div class="font-mono text-[11.5px] uppercase tracking-wider text-inkSoft mb-2.5">Frameworks &amp; Libraries</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">React</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Redux Toolkit</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Node.js</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Express</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">MongoDB</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Tailwind CSS</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">NumPy</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Pandas</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Matplotlib</span>
+        </div>
+      </div>
+      <div>
+        <div class="font-mono text-[11.5px] uppercase tracking-wider text-inkSoft mb-2.5">Tools</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Git &amp; GitHub</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Postman</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Firebase</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">VS Code</span>
+        </div>
+      </div>
+      <div>
+        <div class="font-mono text-[11.5px] uppercase tracking-wider text-inkSoft mb-2.5">Concepts</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">Operating Systems</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">DBMS</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">System Design</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 rounded-md bg-bgRaised border border-line">REST APIs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-12 sm:py-16">
+    <div class="flex items-baseline gap-3.5 mb-9 border-b border-line pb-4">
+      <span class="font-mono text-xs text-inkSoft">03</span>
+      <span class="font-display font-semibold text-2xl">Projects</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 sm:gap-6 border-t border-line py-7">
+      <div>
+        <div class="font-mono text-xs text-inkSoft">Ongoing</div>
+        <span class="inline-block mt-2 font-mono text-[11px] text-accent bg-accentSoft px-2 py-1 rounded">In progress</span>
+      </div>
+      <div>
+        <div class="font-display font-semibold text-lg flex flex-wrap items-center gap-2.5">
+          PrepMe — AI Career Preparation Platform
+          <a class="font-mono text-xs font-normal text-accent border-b border-transparent hover:border-accent" href="https://github.com/codeX4r/prepME" target="_blank" rel="noopener">repo ↗</a>
+        </div>
+        <ul class="text-inkSoft text-sm mt-2.5 space-y-1.5 list-disc pl-[18px] max-w-[60ch]">
+          <li>Full-stack MERN app for AI-powered career preparation and resume analysis.</li>
+          <li>Secure auth with JWT, Google/GitHub OAuth, email verification, and password reset.</li>
+          <li>Gemini API integration to analyze resumes and generate career insights.</li>
+        </ul>
+        <div class="mt-3.5 flex flex-wrap gap-1.5">
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">React</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">Node.js</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">Express</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">MongoDB</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">Redux Toolkit</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">Gemini API</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 sm:gap-6 border-t border-line py-7">
+      <div class="font-mono text-xs text-inkSoft">2026</div>
+      <div>
+        <div class="font-display font-semibold text-lg">Movie Box Office Collection Prediction</div>
+        <ul class="text-inkSoft text-sm mt-2.5 space-y-1.5 list-disc pl-[18px] max-w-[60ch]">
+          <li>ML model predicting box-office collections with Decision Tree and XGBoost.</li>
+          <li>EDA, preprocessing, and feature engineering; tuning via GridSearchCV and RandomizedSearchCV.</li>
+          <li>Compared regression models using MAE, RMSE, and R² score.</li>
+        </ul>
+        <div class="mt-3.5 flex flex-wrap gap-1.5">
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">Python</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">Scikit-learn</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">XGBoost</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">Pandas</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">NumPy</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 sm:gap-6 border-t border-line py-7">
+      <div class="font-mono text-xs text-inkSoft">2025</div>
+      <div>
+        <div class="font-display font-semibold text-lg flex flex-wrap items-center gap-2.5">
+          Netflix GPT — AI Movie Recommendation Platform
+          <a class="font-mono text-xs font-normal text-accent border-b border-transparent hover:border-accent" href="https://github.com/codeX4r/netflixGPTProject" target="_blank" rel="noopener">repo ↗</a>
+          <a class="font-mono text-xs font-normal text-accent border-b border-transparent hover:border-accent" href="https://netflix-gpt-project-5s9i.vercel.app/" target="_blank" rel="noopener">live ↗</a>
+        </div>
+        <ul class="text-inkSoft text-sm mt-2.5 space-y-1.5 list-disc pl-[18px] max-w-[60ch]">
+          <li>Netflix-inspired streaming platform with Firebase Authentication and protected routing.</li>
+          <li>TMDB API integration for Now Playing, Popular, Top Rated, and Upcoming titles, plus trailers.</li>
+          <li>AI recommendation feature using the OpenAI API with natural-language search.</li>
+        </ul>
+        <div class="mt-3.5 flex flex-wrap gap-1.5">
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">React</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">Redux Toolkit</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">Firebase</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">OpenAI API</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">Tailwind CSS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 sm:gap-6 border-t border-line py-7 pb-0">
+      <div class="font-mono text-xs text-inkSoft">2023</div>
+      <div>
+        <div class="font-display font-semibold text-lg">Online Voting System</div>
+        <ul class="text-inkSoft text-sm mt-2.5 space-y-1.5 list-disc pl-[18px] max-w-[60ch]">
+          <li>Secure web-based voting system with user authentication and result tracking.</li>
+          <li>PHP backend integration for data integrity and a smooth voting experience.</li>
+        </ul>
+        <div class="mt-3.5 flex flex-wrap gap-1.5">
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">PHP</span>
+          <span class="font-mono text-[11.5px] text-inkSoft bg-bgRaised px-2 py-1 rounded">SQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section id="credentials" class="py-12 sm:py-16">
+    <div class="flex items-baseline gap-3.5 mb-9 border-b border-line pb-4">
+      <span class="font-mono text-xs text-inkSoft">04</span>
+      <span class="font-display font-semibold text-2xl">Trainings &amp; Certifications</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
+      <div>
+        <div class="font-mono text-[11.5px] uppercase tracking-wider text-inkSoft mb-2.5">Trainings</div>
+          <a href="https://drive.google.com/file/d/1iSEDOREwHHyNLP8KUXiKzUi9Q0xioRb6/view">
+          <div>
+            <span>ML &amp; Agentic AI</span>
+            <span class="font-mono text-xs text-inkSoft font-normal">2026</span>
+          </div>
+        </a>
+          <div class="text-inkSoft text-[13.5px] mt-1">E &amp; ICT Academy, IIT Roorkee — 4-week summer training</div>
+        </div>
+        <div class="mt-3.5 pt-3.5 border-t border-line">
+          <a href="https://verify.eicta.digitalcredentials.in/aa9f7a8a-ed27-4467-986b-b86460a2c706?utm_source=direct_link&utm_medium=portal">
+          <div class="flex justify-between gap-2.5 text-sm font-semibold">
+            <span>Full Stack Web Developer</span>
+            <span class="font-mono text-xs text-inkSoft font-normal">2023</span>
+          </div>
+          </a>
+
+          <div class="text-inkSoft text-[13.5px] mt-1">E &amp; ICT Academy, IIT Kanpur — 4-week summer training</div>
+        </div>
+        <div class="mt-3.5 pt-3.5 border-t border-line">
+          <div class="flex justify-between gap-2.5 text-sm font-semibold">
+            <span>Computer Hardware</span>
+            <span class="font-mono text-xs text-inkSoft font-normal">Volunteer</span>
+          </div>
+          <div class="text-inkSoft text-[13.5px] mt-1">Prime Vista Computers, Unnao</div>
+        </div>
+      </div>
+      <div>
+        <div class="font-mono text-[11.5px] uppercase tracking-wider text-inkSoft mb-2.5">Certifications</div>
+        <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=1DEDAB83F6848D73A022EB51B992FC4BF53A813817730DB359674A749675688D" target="_blank">
+        <div>
+          <div  class="text-sm font-semibold">Oracle Agentic AI Certified Foundations Associate</div>
+          <div class="text-inkSoft text-[13.5px] mt-1">Oracle</div>
+        </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT
+  <section id="contact" class="py-12 sm:py-16">
+    <div class="bg-ink text-bg rounded-2xl px-6 sm:px-10 py-10 sm:py-14">
+      <h2 class="font-display font-semibold text-[26px] sm:text-4xl max-w-[16ch]">Let's build something together.</h2>
+      <p class="text-[#A8ADB6] mt-3 text-[15px] max-w-[48ch]">Open to relocation and full-stack / backend roles. The fastest way to reach me is email.</p>
+      <div class="mt-7 flex flex-wrap gap-3.5">
+        <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg bg-accent border border-accent text-white hover:bg-[#4E7CFF] transition-colors" href="mailto:pandeyparth406@gmail.com">pandeyparth406@gmail.com</a>
+        <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg border border-[#3A3F49] text-bg hover:border-bg transition-colors" href="tel:+919795075475">+91 97950 75475</a>
+        <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg border border-[#3A3F49] text-bg hover:border-bg transition-colors" href="https://github.com/codeX4r" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg border border-[#3A3F49] text-bg hover:border-bg transition-colors" href="https://www.linkedin.com/in/parthranjanpandey/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section> -->
+
+  <footer class="pt-8 pb-8 sm:pt-12 sm:pb-12 border-t border-line flex justify-between items-center flex-wrap gap-2.5 font-mono text-xs text-inkSoft">
+    <span class="footer-item">© 2026 Parth Ranjan Pandey</span>
+    <span class="footer-item">Built with intent, not a template.</span>
+  </footer>
+
+</main>
+
+</body>
+</html>
