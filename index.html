@@ -4,28 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Parth Ranjan Pandey — Full-Stack-AI Developer</title>
-<link rel="shortcut icon" href="./parth-photo.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  // Runs before paint to avoid a flash of the wrong theme
+  (function(){
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) document.documentElement.classList.add('dark');
+    } catch(e){}
+  })();
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
   tailwind.config = {
+    darkMode: 'class',
     theme: {
       extend: {
         colors: {
-          bg: '#FAFAF8',
-          bgRaised: '#F1F1EC',
-          ink: '#15181D',
-          inkSoft: '#565E6B',
-          line: '#E1E1DA',
-          accent: '#2B4CE0',
-          accentSoft: '#EDF0FD',
-          term: '#14161A',
-          termBar: '#1D2026',
-          termBorder: '#2A2E36',
-          termText: '#C9CDD3',
-          termOut: '#8FE3A3',
+          bg: 'var(--bg)',
+          bgRaised: 'var(--bg-raised)',
+          ink: 'var(--ink)',
+          inkSoft: 'var(--ink-soft)',
+          line: 'var(--line)',
+          accent: 'var(--accent)',
+          accentSoft: 'var(--accent-soft)',
+          term: 'var(--term)',
+          termBar: 'var(--term-bar)',
+          termBorder: 'var(--term-border)',
+          termText: 'var(--term-text)',
+          termOut: 'var(--term-out)',
         },
         fontFamily: {
           display: ['"Space Grotesk"', 'sans-serif'],
@@ -37,36 +50,84 @@
   }
 </script>
 <style>
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+  :root{
+    --bg: #FAFAF8;
+    --bg-raised: #F1F1EC;
+    --ink: #15181D;
+    --ink-soft: #565E6B;
+    --line: #E1E1DA;
+    --accent: #2B4CE0;
+    --accent-soft: #EDF0FD;
+    --term: #14161A;
+    --term-bar: #1D2026;
+    --term-border: #2A2E36;
+    --term-text: #C9CDD3;
+    --term-out: #8FE3A3;
+    color-scheme: light;
   }
-  body{-webkit-font-smoothing:antialiased;}
+  html.dark{
+    --bg: #0B0D10;
+    --bg-raised: #15181F;
+    --ink: #F2F3F5;
+    --ink-soft: #9AA1AC;
+    --line: #262B33;
+    --accent: #6C8CFF;
+    --accent-soft: #1A2038;
+    --term: #08090B;
+    --term-bar: #121419;
+    --term-border: #21252D;
+    --term-text: #C9CDD3;
+    --term-out: #8FE3A3;
+    color-scheme: dark;
+  }
+  html{scroll-behavior:smooth;}
+  body{-webkit-font-smoothing:antialiased; transition:background-color .35s ease, color .35s ease;}
+  *{transition:background-color .3s ease, border-color .3s ease, color .3s ease;}
   ::selection{background:#2B4CE0; color:#fff;}
-  .keyword{color:#2B4CE0; font-weight:600;}
-  .nav-link{transition:color 0.2s ease;}
-  .nav-link:hover{color:#2B4CE0;}
-  .footer-item{color:#2B4CE0; font-weight:600; transition:color 0.2s ease, text-decoration-color 0.2s ease;}
-  .footer-item:hover{color:#1D3ACD; text-decoration:underline; text-decoration-color:#2B4CE0;}
   .cursor{animation:blink 1s step-end infinite;}
-  @keyframes blink{50%{opacity:0;}}
+  @keyframes blink{50%{opacity:0;}}  html.lenis{height:auto;}
+  .lenis.lenis-smooth{scroll-behavior:auto !important;}
+  .reveal{opacity:0; transform:translateY(28px);}
+  .reveal-item{opacity:0; transform:translateY(14px);}
+  .term-line{opacity:0;}
+  .hero-item{opacity:0; transform:translateY(16px);}
+
+
+  /* Theme toggle switch */
+  .theme-toggle{
+    width:44px; height:24px; border-radius:999px;
+    background:var(--bg-raised); border:1px solid var(--line);
+    position:relative; cursor:pointer; flex-shrink:0;
+  }
+  .theme-toggle .knob{
+    position:absolute; top:2px; left:2px;
+    width:18px; height:18px; border-radius:50%;
+    background:var(--ink); color:var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; line-height:1;
+    transition:transform .3s ease, background .3s ease;
+  }
+  html.dark .theme-toggle .knob{ transform:translateX(20px); }
 </style>
 </head>
 <body class="bg-bg text-ink font-body leading-relaxed">
 
 <header class="sticky top-0 z-50 bg-bg/85 backdrop-blur-md border-b border-line">
   <div class="max-w-4xl mx-auto flex items-center justify-between px-6 py-4">
-    <div class="font-mono text-sm font-medium tracking-wide">
-      code<span class="text-accent">X</span>4r
+    <div class="font-mono text-sm font-medium tracking-wide flex items-center gap-2">
+      Code<span class="text-accent">X</span>4r
     </div>
-    <nav class="hidden sm:flex gap-7 text-sm text-inkSoft">
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#skills">Skills</a>
-      <a class="nav-link" href="#projects">Projects</a>
-      <a class="nav-link" href="#credentials">Credentials</a>
-      <!-- <a class="nav-link" href="#contact">Contact</a> -->
-    </nav>
+    <div class="flex items-center gap-6">
+      <nav class="hidden sm:flex gap-7 text-sm text-inkSoft">
+        <a class="hover:text-ink transition-colors" href="#about">About</a>
+        <a class="hover:text-ink transition-colors" href="#skills">Skills</a>
+        <a class="hover:text-ink transition-colors" href="#projects">Projects</a>
+        <a class="hover:text-ink transition-colors" href="#credentials">Credentials</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+        <span class="knob">☀</span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -74,58 +135,61 @@
 
   <!-- HERO -->
   <section class="py-12 sm:py-16">
-    <div class="flex items-start justify-between gap-6">
-      <div class="font-mono text-xs uppercase tracking-widest text-accent flex items-center gap-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span>
-        Open to relocation
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-center">
+      <div>
+        <div class="hero-item font-mono text-xs uppercase tracking-widest text-accent flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span>
+          Open to relocation
+        </div>
+        <h1 class="hero-item mt-4 font-display font-semibold text-[34px] sm:text-[46px] lg:text-[58px] leading-[1.05] tracking-tight max-w-[11ch]">
+          Parth Ranjan Pandey
+        </h1>
+        <p class="hero-item mt-5 text-base sm:text-lg text-inkSoft max-w-[52ch]">
+          Full-stack developer working in the MERN stack, with a growing focus on backend engineering and AI-powered applications.
+        </p>
       </div>
+      <img class="hero-item w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover border-2 border-line shrink-0 mx-auto md:mx-0" src="parth-photo.png" alt="Portrait of Parth Ranjan Pandey">
     </div>
 
-    <div class="mt-8 flex flex-col-reverse gap-6 md:flex-row md:items-end md:justify-between">
-      <h1 class="font-display font-semibold text-[34px] sm:text-[46px] lg:text-[58px] leading-[1.05] tracking-tight max-w-[12ch]">
-        Parth Ranjan Pandey
-      </h1>
-      <img class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full object-cover border-2 border-line" src="parth-photo.png" alt="Portrait of Parth Ranjan Pandey">
-    </div>
-    <p class="mt-5 text-base sm:text-lg text-inkSoft max-w-[52ch]">
-      Full-stack developer working in the MERN stack, with a growing focus on backend engineering and AI-powered applications.
-    </p>
-
-    <div class="mt-10 rounded-xl overflow-hidden shadow-[0_20px_40px_-20px_rgba(20,22,26,0.35)] max-w-2xl" role="img" aria-label="Terminal window showing a summary of Parth's role and focus">
+    <div class="hero-item mt-10 rounded-xl overflow-hidden shadow-[0_20px_40px_-20px_rgba(20,22,26,0.35)] max-w-2xl" role="img" aria-label="Terminal window showing a summary of Parth's role and focus">
       <div class="bg-termBar border-b border-termBorder flex items-center gap-1.5 px-3.5 py-2.5">
         <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
         <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
         <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
         <span class="ml-2 font-mono text-[11px] text-inkSoft">parth — zsh</span>
       </div>
-      <div class="bg-term px-5 sm:px-6 py-5 sm:py-6 font-mono text-[13px] sm:text-[13.5px] leading-loose text-termText overflow-x-auto">
-        <div><span class="text-[#4E7CFF]">$</span> whoami</div>
-        <div class="text-termOut">&gt; CS undergraduate · B.Tech, PSIT Kanpur (2024–27)</div>
-        <div class="mt-2.5"><span class="text-[#4E7CFF]">$</span> stack --list</div>
-        <div class="text-termOut">&gt; React · Node · Express · MongoDB · Python</div>
-        <div class="mt-2.5"><span class="text-[#4E7CFF]">$</span> focus --current</div>
-        <div class="text-termOut">&gt; AI resume analysis, secure auth, backend systems<span class="cursor inline-block w-[7px] h-3.5 bg-termText ml-0.5 align-text-bottom"></span></div>
+      <div id="term-body" class="bg-term px-5 sm:px-6 py-5 sm:py-6 font-mono text-[13px] sm:text-[13.5px] leading-loose text-termText overflow-x-auto">
+        <div class="term-line"><span class="text-[#4E7CFF]">$</span> <span class="type-target" data-text="whoami"></span></div>
+        <div class="text-termOut term-line"><span class="type-target" data-text="&gt; CS undergraduate · B.Tech, PSIT Kanpur (2024–27)"></span></div>
+        <div class="mt-2.5 term-line"><span class="text-[#4E7CFF]">$</span> <span class="type-target" data-text="stack --list"></span></div>
+        <div class="text-termOut term-line"><span class="type-target" data-text="&gt; React · Node · Express · MongoDB · Python"></span></div>
+        <div class="mt-2.5 term-line"><span class="text-[#4E7CFF]">$</span> <span class="type-target" data-text="focus --current"></span></div>
+        <div class="text-termOut term-line"><span class="type-target" data-text="&gt; AI resume analysis, secure auth, backend systems"></span><span class="cursor inline-block w-[7px] h-3.5 bg-termText ml-0.5 align-text-bottom"></span></div>
       </div>
     </div>
 
-    <div class="mt-7 flex flex-wrap gap-3.5">
-      <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg bg-ink text-white border border-ink hover:bg-accent hover:border-accent transition-colors" href="mailto:pandeyparth406@gmail.com">Email me</a>
+    <div class="hero-item mt-6 flex items-center gap-2 font-mono text-[11px] text-inkSoft opacity-70">
+      <span id="scroll-chevron" class="inline-block">↓</span> scroll to explore
+    </div>
+
+    <div class="hero-item mt-7 flex flex-wrap gap-3.5">
+      <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg bg-ink text-bg border border-ink hover:bg-accent hover:border-accent hover:text-white transition-colors" href="mailto:pandeyparth406@gmail.com">Email me</a>
       <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg border border-line hover:border-ink transition-colors" href="https://github.com/codeX4r" target="_blank" rel="noopener">GitHub ↗</a>
       <a class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-lg border border-line hover:border-ink transition-colors" href="https://www.linkedin.com/in/parthranjanpandey/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="py-12 sm:py-16">
+  <section id="about" class="py-12 sm:py-16 reveal">
     <div class="flex items-baseline gap-3.5 mb-9 border-b border-line pb-4">
       <span class="font-mono text-xs text-inkSoft">01</span>
       <span class="font-display font-semibold text-2xl">About</span>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 sm:gap-12">
       <div class="text-inkSoft text-[15.5px] space-y-3.5">
-        <p class="max-w-[56ch]">I'm a Computer Science undergraduate proficient in the <strong class="keyword">MERN stack</strong> and <strong class="keyword">Python</strong>, with hands-on experience across full-stack development, <span class="keyword">machine learning</span>, and <span class="keyword">AI integration</span> using the <span class="keyword">Gemini</span> and <span class="keyword">OpenAI APIs</span>.</p>
-        <p class="max-w-[56ch]">Most of my recent work centers on <span class="keyword">secure authentication systems</span>, <span class="keyword">REST APIs</span>, and applications that put AI to practical use — like <span class="keyword">resume analysis</span> and natural-language movie search. I care more about solving real problems than collecting shiny badges.</p>
-        <p class="max-w-[56ch]">Current focus: an <span class="keyword">AI resume analyzer</span>, backend engineering, system design, and DSA in Java.</p>
+        <p class="max-w-[56ch]">I'm a Computer Science undergraduate proficient in the <strong class="text-ink font-semibold">MERN stack</strong> and Python, with hands-on experience across full-stack development, machine learning, and AI integration using the Gemini and OpenAI APIs.</p>
+        <p class="max-w-[56ch]">Most of my recent work centers on <strong class="text-ink font-semibold">secure authentication systems</strong>, REST APIs, and applications that put AI to practical use — like resume analysis and natural-language movie search. I care more about solving real problems than collecting shiny badges.</p>
+        <p class="max-w-[56ch]">Current focus: an AI resume analyzer, backend engineering, system design, and DSA in Java.</p>
       </div>
       <div>
         <div class="py-0 border-t-0">
@@ -157,7 +221,7 @@
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="py-12 sm:py-16">
+  <section id="skills" class="py-12 sm:py-16 reveal">
     <div class="flex items-baseline gap-3.5 mb-9 border-b border-line pb-4">
       <span class="font-mono text-xs text-inkSoft">02</span>
       <span class="font-display font-semibold text-2xl">Skills</span>
@@ -209,7 +273,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="py-12 sm:py-16">
+  <section id="projects" class="py-12 sm:py-16 reveal">
     <div class="flex items-baseline gap-3.5 mb-9 border-b border-line pb-4">
       <span class="font-mono text-xs text-inkSoft">03</span>
       <span class="font-display font-semibold text-2xl">Projects</span>
@@ -245,9 +309,10 @@
     <div class="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 sm:gap-6 border-t border-line py-7">
       <div class="font-mono text-xs text-inkSoft">2026</div>
       <div>
-        <div class="font-display font-semibold text-lg">Movie Box Office Collection Prediction</div>
+        <div class="font-display font-semibold text-lg flex flex-wrap items-center gap-2.5">
+          Movie Box Office Collection Prediction
           <a class="font-mono text-xs font-normal text-accent border-b border-transparent hover:border-accent" href="https://colab.research.google.com/drive/13wHuG76Jp2QeyPNQodpBbxAmqVTNqpDS?usp=sharing" target="_blank" rel="noopener">View ↗</a>
-
+        </div>
         <ul class="text-inkSoft text-sm mt-2.5 space-y-1.5 list-disc pl-[18px] max-w-[60ch]">
           <li>ML model predicting box-office collections with Decision Tree and XGBoost.</li>
           <li>EDA, preprocessing, and feature engineering; tuning via GridSearchCV and RandomizedSearchCV.</li>
@@ -303,7 +368,7 @@
   </section>
 
   <!-- CREDENTIALS -->
-  <section id="credentials" class="py-12 sm:py-16">
+  <section id="credentials" class="py-12 sm:py-16 reveal">
     <div class="flex items-baseline gap-3.5 mb-9 border-b border-line pb-4">
       <span class="font-mono text-xs text-inkSoft">04</span>
       <span class="font-display font-semibold text-2xl">Trainings &amp; Certifications</span>
@@ -311,24 +376,20 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
       <div>
         <div class="font-mono text-[11.5px] uppercase tracking-wider text-inkSoft mb-2.5">Trainings</div>
-          <a href="https://drive.google.com/file/d/1iSEDOREwHHyNLP8KUXiKzUi9Q0xioRb6/view">
-          <div>
+        <a class="block hover:opacity-80 transition-opacity" href="https://drive.google.com/file/d/1iSEDOREwHHyNLP8KUXiKzUi9Q0xioRb6/view" target="_blank" rel="noopener">
+          <div class="flex justify-between gap-2.5 text-sm font-semibold">
             <span>ML &amp; Agentic AI</span>
             <span class="font-mono text-xs text-inkSoft font-normal">2026</span>
           </div>
-        </a>
           <div class="text-inkSoft text-[13.5px] mt-1">E &amp; ICT Academy, IIT Roorkee — 4-week summer training</div>
-        </div>
-        <div class="mt-3.5 pt-3.5 border-t border-line">
-          <a href="https://verify.eicta.digitalcredentials.in/aa9f7a8a-ed27-4467-986b-b86460a2c706?utm_source=direct_link&utm_medium=portal">
+        </a>
+        <a class="block mt-3.5 pt-3.5 border-t border-line hover:opacity-80 transition-opacity" href="https://verify.eicta.digitalcredentials.in/aa9f7a8a-ed27-4467-986b-b86460a2c706?utm_source=direct_link&amp;utm_medium=portal" target="_blank" rel="noopener">
           <div class="flex justify-between gap-2.5 text-sm font-semibold">
             <span>Full Stack Web Developer</span>
             <span class="font-mono text-xs text-inkSoft font-normal">2023</span>
           </div>
-          </a>
-
           <div class="text-inkSoft text-[13.5px] mt-1">E &amp; ICT Academy, IIT Kanpur — 4-week summer training</div>
-        </div>
+        </a>
         <div class="mt-3.5 pt-3.5 border-t border-line">
           <div class="flex justify-between gap-2.5 text-sm font-semibold">
             <span>Computer Hardware</span>
@@ -339,22 +400,126 @@
       </div>
       <div>
         <div class="font-mono text-[11.5px] uppercase tracking-wider text-inkSoft mb-2.5">Certifications</div>
-        <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=1DEDAB83F6848D73A022EB51B992FC4BF53A813817730DB359674A749675688D" target="_blank">
-        <div>
-          <div  class="text-sm font-semibold">Oracle Agentic AI Certified Foundations Associate</div>
+        <a class="block hover:opacity-80 transition-opacity" href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=1DEDAB83F6848D73A022EB51B992FC4BF53A813817730DB359674A749675688D" target="_blank" rel="noopener">
+          <div class="text-sm font-semibold">Oracle Agentic AI Certified Foundations Associate</div>
           <div class="text-inkSoft text-[13.5px] mt-1">Oracle</div>
-        </div>
         </a>
       </div>
     </div>
   </section>
 
-  <footer class="pt-8 pb-8 sm:pt-12 sm:pb-12 border-t border-line flex justify-between items-center flex-wrap gap-2.5 font-mono text-xs text-inkSoft">
-    <span class="footer-item">© 2026 Parth Ranjan Pandey</span>
-    <!-- <span class="footer-item">Built with intent, not a template.</span> -->
+  <footer class="py-8 sm:py-12 text-center font-mono text-xs text-inkSoft">
+    <span>© 2026 Parth Ranjan Pandey</span>
   </footer>
 
 </main>
 
+<script>
+(function(){
+  var hasGsap = typeof gsap !== 'undefined';
+
+  // --- Theme toggle (light/dark) ---
+  var toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    var knob = toggle.querySelector('.knob');
+    function syncKnob(){
+      var isDark = document.documentElement.classList.contains('dark');
+      toggle.setAttribute('aria-checked', isDark ? 'true' : 'false');
+      if (knob) knob.textContent = isDark ? '☾' : '☀';
+    }
+    syncKnob();
+    toggle.addEventListener('click', function(){
+      var isDark = document.documentElement.classList.toggle('dark');
+      try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch(e){}
+      syncKnob();
+    });
+  }
+
+  // --- Typewriter for the terminal ---
+  function typeLine(el, cb){
+    var full = el.getAttribute('data-text') || '';
+    var i = 0;
+    (function step(){
+      el.textContent = full.slice(0, i);
+      i++;
+      if (i <= full.length) { setTimeout(step, 16); }
+      else if (cb) { cb(); }
+    })();
+  }
+  function typeAll(){
+    var targets = Array.prototype.slice.call(document.querySelectorAll('.type-target'));
+    document.querySelectorAll('.term-line').forEach(function(l){ l.style.opacity = 1; });
+    (function next(idx){
+      if (idx >= targets.length) return;
+      typeLine(targets[idx], function(){ setTimeout(function(){ next(idx + 1); }, 180); });
+    })(0);
+  }
+  window.addEventListener('DOMContentLoaded', function(){ setTimeout(typeAll, hasGsap ? 550 : 100); });
+
+  // Safety net: if GSAP/CDN failed to load, don't leave hero/sections invisible
+  if (!hasGsap) {
+    document.querySelectorAll('.hero-item, .reveal, .reveal-item').forEach(function(el){
+      el.style.opacity = 1; el.style.transform = 'none';
+    });
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // --- Smooth scroll (Lenis) synced with GSAP's ticker ---
+  var lenis = null;
+  if (typeof Lenis !== 'undefined') {
+    lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(time){ lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(link){
+      link.addEventListener('click', function(e){
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -70 }); }
+      });
+    });
+  }
+
+  // --- Hero load-in: bigger movement, slower, unmistakable ---
+  gsap.fromTo('.hero-item',
+    { opacity: 0, y: 34 },
+    { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.14, delay: 0.15 }
+  );
+
+  // --- Persistent bouncing scroll cue — always animating, proves the script is running ---
+  gsap.to('#scroll-chevron', { y: 6, duration: 0.7, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+
+  // --- Section reveals on scroll: bigger travel, slower duration ---
+  gsap.utils.toArray('.reveal').forEach(function(section){
+    gsap.fromTo(section,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power2.out',
+        scrollTrigger: { trigger: section, start: 'top 85%' } }
+    );
+  });
+
+  // --- Staggered tag / chip groups (skills, project stacks) ---
+  document.querySelectorAll('.flex-wrap.gap-2, .flex-wrap.gap-1\\.5').forEach(function(group){
+    var chips = group.querySelectorAll('span');
+    if (!chips.length) return;
+    gsap.set(chips, { opacity: 0, y: 10 });
+    gsap.to(chips, {
+      opacity: 1, y: 0, duration: 0.45, stagger: 0.05, ease: 'power1.out',
+      scrollTrigger: { trigger: group, start: 'top 90%' }
+    });
+  });
+
+  // --- Project rows slide in from the left ---
+  gsap.utils.toArray('#projects > div.border-t').forEach(function(row){
+    gsap.fromTo(row,
+      { opacity: 0, x: -30 },
+      { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: row, start: 'top 88%' } }
+    );
+  });
+})();
+</script>
 </body>
 </html>
